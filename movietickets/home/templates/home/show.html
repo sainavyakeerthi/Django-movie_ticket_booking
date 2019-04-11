@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+<head>
+    <title>{{show}}</title>
+</head>
+{% block body %}
+<marquee>
+    <h1 style="font-family:Lucida Handwriting">
+        Have a great day and have more fun by booking the show</h1>
+</marquee>
+
+{% if first %}
+
+{% for i in y %}
+<h2><a href="{% url 'home:book_first' pk=pk theat=i %}">{{i}}</a></h2>
+{% endfor %}
+
+{% endif %}
+
+{% if second %}
+
+{% for i in y %}
+<h2><a href="{% url 'home:book_second' pk=pk theat=i %}">{{i}}</a></h2>
+{% endfor %}
+
+{% endif %}
+
+{% if third %}
+
+{% for i in y %}
+<h2><a href="{% url 'home:book_third' pk=pk theat=i %}">{{i}}</a></h2>
+{% endfor %}
+
+{% endif %}
+
+
+{% endblock %}
+

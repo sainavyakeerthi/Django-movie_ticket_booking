@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<head>
+    <title> movie</title>
+    {% block head %}
+    {% endblock %}
+</head>
+{% block body %}
+<div class="container">
+    <h1>movie</h1>
+    <p> Name : {{ x }}</p>
+    <video width="500" height="281" controls>
+      <source src="{{media}}/videos/VID-20181122-WA0000.mp4" type="video/mp4"/>
+
+    </video>
+</div>
+<br>
+<div>
+    <h2><a class="navbar-brand" href="{% url 'home:first_show' pk=pk %}">FirstShow</a></h2>
+    <h2><a class="navbar-brand" href="{% url 'home:second_show' pk=pk %}">SecondShow</a></h2>
+    <h2><a class="navbar-brand" href="{% url 'home:third_show' pk=pk %}">ThirdShow</a></h2>
+
+</div>
+
+
+{% endblock %}

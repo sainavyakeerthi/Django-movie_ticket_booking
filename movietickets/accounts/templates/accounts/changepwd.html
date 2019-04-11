@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<head>
+    <title>chnagepwd</title>
+    {% block head %}
+    {% endblock %}
+</head>
+{% block body %}
+<div class="container">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+</div>
+{% endblock %}

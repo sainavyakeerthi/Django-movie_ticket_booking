@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container fadelnDown animated">
+            <h2> Home </h2>
+            <h2>other movies</h2>
+            {% for i in movies %}
+                            <a class="navbar-brand" href="{% url 'home:movie_view_pk' pk=i.id %}">
+                            <img src="{{ i.image.url }}"  class="rounded-circle">
+
+
+
+
+            {% endfor %}
+
+</div>
+
+{% endblock %}

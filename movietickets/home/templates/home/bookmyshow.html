@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+<head>
+    <title>{{show}}</title>
+</head>
+{% block body %}
+<div align="center" class="alert alert-success" role="alert">
+    {% if text1 and text2 %}
+        <marquee>
+            <h1 style="font-family:Lucida Handwriting">
+                Thanks for booking row:{{text1}} and col:{{text2}}
+            </h1>
+        </marquee>
+
+       {% endif %}
+</div>
+{% for i in row %}
+ <table class="table table-borderless">
+  <tbody>
+    <tr>
+      <th scope="row">{{i}}</th>
+        {% for j in col %}
+           {% if i in book_row and j in book_col %}
+            <td><button type="button" class="btn btn-dark" disabled>{{j}}</button></td>
+            {% else %}
+            <td><button type="button" class="btn btn-outline-dark">{{j}}</button></td>
+           {% endif %}
+        {% endfor %}
+    </tr>
+  </tbody>
+ </table>
+{% endfor %}
+<h6>movie:{{x}}</h6>
+<h6>Show:{{show}}</h6>
+<h6>Theatre:{{theat}}</h6>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
+
